@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatApp - Real-Time Chat Application</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/emoji-mart@latest/css/emoji-mart.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <section id="welcome-section" class="active">
+        <div class="welcome-container">
+          <h1>Welcome to ChatApp</h1>
+          <p>Connect with friends and colleagues in real-time!</p>
+          <div id="auth-form">
+            <div class="form-group">
+              <input
+                type="text"
+                id="username-input"
+                placeholder="Username"
+                autocomplete="off"
+                maxlength="20"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="password-input"
+                placeholder="Password"
+                maxlength="30"
+              />
+            </div>
+            <p class="error-message" id="auth-error"></p>
+            <button id="signin-button">Sign In</button>
+            <button id="signup-button">Sign Up</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="chat-section" class="hidden">
+        <div id="sidebar">
+          <button id="close-sidebar" aria-label="Close Sidebar">&times;</button>
+          <div class="sidebar-header">
+            <h2>Chat Rooms</h2>
+          </div>
+
+          <div class="room-list-container">
+            <div class="public-rooms">
+              <h3>Public Rooms</h3>
+              <ul id="public-room-list"></ul>
+            </div>
+            <div class="private-rooms">
+              <h3>Private Rooms</h3>
+              <ul id="private-room-list"></ul>
+            </div>
+            <div class="create-room">
+              <input
+                type="text"
+                id="new-room-input"
+                placeholder="New room name"
+                maxlength="30"
+              />
+              <button id="create-room-button">Create</button>
+            </div>
+            <div class="join-private-room">
+              <input
+                type="text"
+                id="private-room-code"
+                placeholder="Enter private room code"
+                maxlength="6"
+              />
+              <button id="join-private-room-button">Join Private Room</button>
+            </div>
+          </div>
+
+          <div class="online-users">
+            <h3>Online Users</h3>
+            <div class="user-list" id="online-users-list"></div>
+          </div>
+        </div>
+
+        <div id="chat-area">
+          <div class="chat-header">
+            <button id="toggle-sidebar" aria-label="Toggle Sidebar">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="room-info">
+              <h2 id="current-room"></h2>
+              <span id="room-members"></span>
+            </div>
+            <button id="signout-button">Sign Out</button>
+          </div>
+
+          <div id="message-container"></div>
+
+          <div class="typing-indicator" id="typing-indicator"></div>
+
+          <div id="input-area">
+            <div class="formatting-buttons">
+              <button id="bold-button"><i class="fas fa-bold"></i></button>
+              <button id="italic-button"><i class="fas fa-italic"></i></button>
+              <button id="underline-button">
+                <i class="fas fa-underline"></i>
+              </button>
+            </div>
+            <div class="input-container">
+              <input
+                type="text"
+                id="message-input"
+                placeholder="Type your message..."
+                autocomplete="off"
+              />
+              <button id="emoji-button">😊</button>
+              <button id="send-button">Send</button>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-overlay"></div>
+      </section>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

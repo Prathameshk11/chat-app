@@ -1,0 +1,41 @@
+# Node.js dependencies
+/node_modules/
+
+# Logs
+/logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# OS-specific files
+.DS_Store         # macOS system file
+Thumbs.db         # Windows system file
+
+# Environment files
+.env              # Sensitive environment variables (Do not share your secrets)
+.env.*            # To ignore any other environment files (like .env.local)
+
+# Temporary files
+*.log             # Log files
+*.tmp             # Temporary files
+
+# Build directories (for build or dist output)
+/build/
+/dist/
+
+# IDE/Editor-specific files
+.vscode/          # VS Code config directory
+.idea/            # JetBrains IDE files
+*.sublime-workspace
+*.sublime-project
+
+# Other temporary or platform-specific files
+npm-debug.log*
+.yarn-debug.log*
+.yarn-error.log*
+
+# Optional: Exclude test-specific files
+/coverage/
+
+# Optional: Exclude sensitive server files like secrets or private keys
+/private/
