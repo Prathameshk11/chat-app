@@ -1,7 +1,7 @@
 
-const socket = io("https://chat-app-rosy-delta.vercel.app/", {
+const socket = io("http://localhost:3000", {
   transports: ["websocket", "polling"],
-});
+})
 
 // DOM Elements
 const welcomeSection = document.getElementById("welcome-section")
